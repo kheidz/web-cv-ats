@@ -1,0 +1,476 @@
+/* ===================== RESET & BASE ===================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-white: #ffffff;
+  --color-light-gray: #f4f6f8;
+  --color-gray: #e2e6ea;
+  --color-text: #2b2f33;
+  --color-blue: #2563eb;
+  --color-blue-dark: #1d4ed8;
+  --font-main: Calibri, Arial, Helvetica, sans-serif;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-light-gray);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ===================== TOMBOL ===================== */
+.btn {
+  font-family: var(--font-main);
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-blue-dark);
+}
+
+.btn-secondary {
+  background-color: var(--color-gray);
+  color: var(--color-text);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: #d1d6db;
+}
+
+/* ===================== HALAMAN UTAMA (LANDING) ===================== */
+.landing {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-white) 0%, var(--color-light-gray) 100%);
+  text-align: center;
+  padding: 20px;
+}
+
+.landing-content h1 {
+  font-size: 42px;
+  color: var(--color-blue);
+  margin-bottom: 16px;
+}
+
+.landing-content p {
+  font-size: 17px;
+  color: #555;
+  max-width: 480px;
+  margin: 0 auto 28px auto;
+}
+
+/* ===================== HALAMAN APLIKASI ===================== */
+.app-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-gray);
+  padding: 16px 24px;
+}
+
+.app-header h2 {
+  color: var(--color-blue);
+  font-size: 22px;
+}
+
+.app-container {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  align-items: flex-start;
+}
+
+/* ===================== PANEL FORM (KIRI) ===================== */
+.form-panel {
+  flex: 1;
+  min-width: 320px;
+  background-color: var(--color-white);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+}
+
+fieldset {
+  border: 1px solid var(--color-gray);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+legend {
+  font-weight: bold;
+  color: var(--color-blue);
+  padding: 0 8px;
+  font-size: 15px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 10px 0 4px 0;
+  color: #444;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  font-family: var(--font-main);
+  font-size: 14px;
+  padding: 9px 10px;
+  border: 1px solid var(--color-gray);
+  border-radius: 6px;
+  background-color: var(--color-light-gray);
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-blue);
+  background-color: var(--color-white);
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.form-actions .btn {
+  flex: 1;
+}
+
+.history-panel {
+  margin-top: 20px;
+  border-top: 1px solid var(--color-gray);
+  padding-top: 16px;
+}
+
+.history-panel h3 {
+  font-size: 15px;
+  color: var(--color-blue);
+  margin-bottom: 6px;
+}
+
+.history-help {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-item {
+  border: 1px solid var(--color-gray);
+  border-radius: 8px;
+  padding: 10px;
+  background-color: var(--color-light-gray);
+}
+
+.history-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 6px;
+}
+
+.history-main strong {
+  font-size: 13px;
+  color: var(--color-text);
+}
+
+.history-main span {
+  font-size: 12px;
+  color: #666;
+}
+
+.history-meta {
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.history-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.history-btn {
+  border: none;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.load-btn {
+  background-color: var(--color-blue);
+  color: #fff;
+}
+
+.delete-btn {
+  background-color: #ef4444;
+  color: #fff;
+}
+
+.history-empty {
+  font-size: 12px;
+  color: #888;
+  padding: 8px 0;
+}
+
+/* ===================== PANEL PREVIEW (KANAN) ===================== */
+.preview-panel {
+  flex: 1;
+  min-width: 320px;
+  position: sticky;
+  top: 24px;
+}
+
+.preview-toolbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.cv-preview-wrapper {
+  background-color: var(--color-white);
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  padding: 10px;
+  max-height: calc(100vh - 170px);
+  overflow-y: auto;
+}
+
+/* ===================== TEMPLATE CV ATS ===================== */
+/* Format mengikuti referensi: nama all-caps dominan, kontak terpusat 1 baris,
+   heading section uppercase + border-bottom hitam, entry 2 baris (nama+kota | jabatan+tanggal),
+   single-column, Calibri/Arial, 11pt body, margin ~0.75in */
+
+.cv-preview {
+  background-color: var(--color-white);
+  font-family: var(--font-main);
+  color: #000;
+  width: 100%;
+  max-width: 794px;
+  margin: 0 auto;
+  padding: 0.65in 0.75in;
+  min-height: 400px;
+  font-size: 11pt;
+  line-height: 1.4;
+}
+
+.empty-state {
+  color: #999;
+  text-align: center;
+  font-style: italic;
+  padding: 60px 20px;
+}
+
+/* ---------- NAMA: all-caps, sangat dominan ---------- */
+.cv-name {
+  font-size: 26pt;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.5px;
+  line-height: 1.15;
+}
+
+/* ---------- JABATAN YANG DILAMAR: judul di bawah nama ---------- */
+.cv-job-title {
+  text-align: center;
+  font-size: 12pt;
+  font-weight: 600;
+  color: var(--color-black);
+  margin-top: 6px;
+}
+
+/* ---------- KONTAK: satu atau dua baris terpusat, pipe-separated ---------- */
+.cv-contact {
+  text-align: center;
+  font-size: 10.5pt;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+/* ---------- SUMMARY: paragraf bebas tanpa heading, bold keyword support ---------- */
+.cv-summary {
+  margin: 14px 0 18px 0;
+  font-size: 11pt;
+  line-height: 1.45;
+  text-align: left;
+}
+
+/* ---------- SECTION ---------- */
+.cv-section {
+  margin-bottom: 16px;
+}
+
+.cv-section:last-child {
+  margin-bottom: 0;
+}
+
+/* Heading: ALL CAPS, bold, rata kiri, dengan garis bawah penuh */
+.cv-section-title {
+  font-size: 12pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 1.5px solid #000;
+  padding-bottom: 2px;
+  margin-bottom: 8px;
+  page-break-after: avoid;
+  break-after: avoid;
+}
+
+/* ---------- ENTRY ---------- */
+.cv-entry {
+  margin-bottom: 10px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.cv-entry:last-child {
+  margin-bottom: 0;
+}
+
+/* Baris 2-kolom: kiri (flex-grow) + kanan (nowrap) — tanpa tabel, aman ATS */
+.cv-entry-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+/* Kolom kiri entry */
+.cv-entry-left {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Kolom kanan entry: kota & tanggal */
+.cv-entry-right {
+  text-align: right;
+  white-space: nowrap;
+  font-size: 10.5pt;
+  flex-shrink: 0;
+}
+
+/* Baris 1 kiri: nama perusahaan / institusi — bold */
+.cv-entry-title {
+  font-weight: bold;
+  font-size: 11pt;
+}
+
+/* Baris 2 kiri: jabatan / gelar — italic */
+.cv-entry-subtitle {
+  font-style: italic;
+  font-size: 11pt;
+  font-weight: normal;
+}
+
+/* Tanggal di baris 2 kanan — bold untuk pengalaman kerja */
+.cv-entry-date-bold {
+  font-weight: bold;
+}
+
+/* ---------- BULLET ---------- */
+.cv-bullets {
+  margin-top: 5px;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.cv-bullets li {
+  font-size: 11pt;
+  margin-bottom: 3px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* ---------- SKILLS: per baris, label kategori bold (Kategori: isi) ---------- */
+.cv-bullets li strong {
+  font-weight: bold;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 900px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .form-panel,
+  .preview-panel {
+    width: 100%;
+    max-height: none;
+    position: static;
+  }
+
+  .cv-preview-wrapper {
+    max-height: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-content h1 {
+    font-size: 30px;
+  }
+
+  .cv-preview {
+    padding: 24px;
+  }
+}
+
+/* ===================== PRINT / PDF MODE ===================== */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  #cvPreview, #cvPreview * {
+    visibility: visible;
+  }
+
+  #cvPreview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+}

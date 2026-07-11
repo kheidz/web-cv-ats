@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATS CV Generator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===================== HALAMAN UTAMA (LANDING) ===================== -->
+  <section id="landingPage" class="landing">
+    <div class="landing-content">
+      <h1>ATS CV Generator</h1>
+      <p>Buat CV ramah ATS secara otomatis hanya dengan mengisi form. Tanpa ribet atur layout, font, atau margin.</p>
+      <button id="btnStart" class="btn btn-primary">Buat CV</button>
+    </div>
+  </section>
+
+  <!-- ===================== HALAMAN APLIKASI (FORM + PREVIEW) ===================== -->
+  <section id="appPage" class="app-page hidden">
+    <header class="app-header">
+      <h2>ATS CV Generator</h2>
+    </header>
+
+    <div class="app-container">
+
+      <!-- ============ KOLOM KIRI: FORM INPUT ============ -->
+      <div class="form-panel">
+        <form id="cvForm">
+
+          <!-- Data Diri -->
+          <fieldset>
+            <legend>Data Diri</legend>
+
+            <label for="fullName">Nama Lengkap *</label>
+            <input type="text" id="fullName" placeholder="Contoh: Budi Santoso" required>
+
+            <label for="jobTitle">Jabatan yang Dilamar *</label>
+            <input type="text" id="jobTitle" placeholder="Contoh: Frontend Developer" required>
+
+            <label for="phone">Nomor Telepon *</label>
+            <input type="text" id="phone" placeholder="Contoh: 0812-3456-7890" required>
+
+            <label for="email">Email *</label>
+            <input type="email" id="email" placeholder="Contoh: budi@email.com" required>
+
+            <label for="linkedin">LinkedIn</label>
+            <input type="text" id="linkedin" placeholder="Contoh: linkedin.com/in/budisantoso">
+
+            <label for="github">GitHub</label>
+            <input type="text" id="github" placeholder="Contoh: github.com/budisantoso">
+
+            <label for="city">Kota *</label>
+            <input type="text" id="city" placeholder="Contoh: Jakarta" required>
+          </fieldset>
+
+          <!-- Ringkasan -->
+          <fieldset>
+            <legend>Ringkasan Diri</legend>
+            <label for="summary">Professional Summary <span style="font-weight:normal;color:#888;">(gunakan **teks** untuk bold kata kunci)</span></label>
+            <textarea id="summary" rows="4" placeholder="Contoh: Saya adalah mahasiswa hukum yang tertarik pada bidang **legal compliance** dan **legal drafting** dengan latar belakang **corporate law**."></textarea>
+          </fieldset>
+
+          <!-- Pendidikan -->
+          <fieldset>
+            <legend>Pendidikan</legend>
+            <textarea id="education" rows="5" placeholder="Format per baris (pisah dengan |):&#10;Universitas Indonesia | S1 Teknik Informatika | GPA: 3.85/4.00 | Jakarta, Indonesia | 2018 - 2022 | Ketua BEM ; Anggota Debating Club"></textarea>
+          </fieldset>
+
+          <!-- Pengalaman -->
+          <fieldset>
+            <legend>Pengalaman Kerja</legend>
+            <textarea id="experience" rows="6" placeholder="Format per baris (pisah dengan |):&#10;PT Bank Negara Indonesia | Legal and Compliance Officer | Jakarta, Indonesia | Jun 20 - Jul 23 | Mengevaluasi proses compliance ; Menangani isu legal perusahaan"></textarea>
+          </fieldset>
+
+          <!-- Organisasi -->
+          <fieldset>
+            <legend>Organisasi</legend>
+            <textarea id="organization" rows="4" placeholder="Format per baris (pisah dengan |):&#10;ASEAN Youth Advocate Network | Director for Research | Jakarta, Indonesia | Apr 20 - Oct 21 | Memimpin tim 20 orang ; Meneliti isu hukum ASEAN"></textarea>
+          </fieldset>
+
+          <!-- Project -->
+          <fieldset>
+            <legend>Project</legend>
+            <textarea id="projects" rows="5" placeholder="Format per baris (pisah dengan |):&#10;Nama Project | Deskripsi singkat | Jakarta / Remote | Jan 23 - Des 23 | Teknologi yang digunakan ; Hasil yang dicapai"></textarea>
+          </fieldset>
+
+          <!-- Skill -->
+          <fieldset>
+            <legend>Skill</legend>
+            <label for="skills" style="font-weight:normal;font-size:12px;color:#666;">Satu kategori per baris. Format: <strong>Kategori: item1, item2</strong></label>
+            <textarea id="skills" rows="4" placeholder="Hard Skill: legal drafting, legal writing, public speaking&#10;Soft Skill: komunikasi, kepemimpinan, kerja tim&#10;Software: Microsoft Office, Canva, Figma"></textarea>
+          </fieldset>
+
+          <!-- Sertifikat -->
+          <fieldset>
+            <legend>Sertifikasi</legend>
+            <textarea id="certificates" rows="3" placeholder="Satu sertifikasi per baris. Contoh:&#10;Certified Legal Compliance Professional (CLCP), LBBH, 2022"></textarea>
+          </fieldset>
+
+          <!-- Penghargaan -->
+          <fieldset>
+            <legend>Penghargaan (Award)</legend>
+            <textarea id="awards" rows="3" placeholder="Satu penghargaan per baris. Contoh:&#10;Juara 1 Lomba Debat Konstitusi, DPR RI, 2022"></textarea>
+          </fieldset>
+
+          <!-- Bahasa -->
+          <fieldset>
+            <legend>Bahasa</legend>
+            <textarea id="languages" rows="2" placeholder="Pisahkan dengan koma. Contoh: Indonesia, English"></textarea>
+          </fieldset>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Generate CV</button>
+            <button type="button" id="btnReset" class="btn btn-secondary">Reset Form</button>
+          </div>
+
+          <div class="history-panel">
+            <h3>Riwayat CV</h3>
+            <p class="history-help">CV yang pernah dibuat akan tersimpan di browser Anda dan bisa dipanggil kembali.</p>
+            <div id="historyList" class="history-list"></div>
+          </div>
+        </form>
+      </div>
+
+      <!-- ============ KOLOM KANAN: PREVIEW CV ============ -->
+      <div class="preview-panel">
+        <div class="preview-toolbar">
+          <button type="button" id="btnEdit" class="btn btn-secondary" disabled>Edit</button>
+          <button type="button" id="btnDownload" class="btn btn-primary" disabled>Download PDF</button>
+        </div>
+
+        <div id="cvPreviewWrapper" class="cv-preview-wrapper">
+          <div id="cvPreview" class="cv-preview">
+            <p class="empty-state">Isi form di sebelah kiri untuk melihat preview CV Anda di sini secara real-time.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<script src="script.js"></script>
+</body>
+</html>
